@@ -67,9 +67,9 @@ discoveryUrl = ('https://sheets.googleapis.com/$discovery/rest?'
                 'version=v4')
 service = discovery.build('sheets', 'v4', http=http,
                           discoveryServiceUrl=discoveryUrl)
-spreadsheetId = '1jyKG7NdECvvhDTeJwMDtd2HXiWdWXuvXHTxhcIwhyew'
+spreadsheetId = '1zc0FPiOgtqdN98TFHHOvFNNhRz7iepDdyzVN1cMpiXQ'
 #    spreadsheetId = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
-rangeName = 'A1:D14'
+rangeName = 'A1:J31'
 result = service.spreadsheets().values().get(
     spreadsheetId=spreadsheetId, range=rangeName).execute()
 values = result.get('values', [])
@@ -79,7 +79,7 @@ if not values:
 else:
     for row in values:
         # Print columns A and E, which correspond to indices 0 and 4.
-        print('%s, %s' % (row[0], row[3]))
+        print('%s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s \t %s' % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
 
 
 #if __name__ == '__main__':
