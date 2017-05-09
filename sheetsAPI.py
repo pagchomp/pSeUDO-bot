@@ -74,6 +74,12 @@ result = service.spreadsheets().values().get(
     spreadsheetId=spreadsheetId, range=rangeName).execute()
 values = result.get('values', [])
 
+
+
+service.spreadsheets().values().get(
+    spreadsheetId=spreadsheetId, range=rangeName).execute()
+
+
 if not values:
     print('No data found.')
 else:
