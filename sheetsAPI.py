@@ -13,6 +13,8 @@ from apiclient import discovery
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
+import pandas as pd
+import numpy as np
 
 try:
     import argparse
@@ -82,7 +84,12 @@ values = result.get('values', [])
 if not values:
     print('No data found.')
 else:
-    
+    # 6 player/coach/analyst
+    # 8 is team mmr
+    # 12 is solo mmr
+    # 13 shot caller
+    # 14 is role
+    df = pd.DataFrame(values[1:], columns = values[0])
     
 #    for row in values:
 #        # Print columns A and E, which correspond to indices 0 and 4.
